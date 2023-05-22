@@ -26,6 +26,8 @@ app.post('/pessoas',async (req:Request,res:Response) =>{
         password:"test",
         database:"test"
     })
+
+    
     //console.log(req.body.id,req.body.nome,req.body.idade);
     let query = "INSERT INTO pessoas (id, nome, idade) VALUES (?, ?, ?)";
     let resultado = await banco.query(query, [req.body.id,req.body.nome,req.body.idade]);
