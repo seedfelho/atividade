@@ -7,6 +7,7 @@
     <title>document</title>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
         .form-cadastro{
             display: flex;
             flex-direction: column;
@@ -21,7 +22,7 @@
         .container{
             margin-top: 200px;
             background-color: darkcyan;
-            height: 400px;
+            height: 450px;
             width: 400px;
             border-radius: 20px;
             display: flex;
@@ -30,31 +31,42 @@
             align-items: center;
         }
         .botao{
-            margin-top: 5px;
-            
+            margin-top: 15px;
+            background-color: rgb(143, 143, 143);
+            border-radius: 15px;
+            height: 25px;
+            border: none;
+        }
+        .h{
+            font-family: 'Roboto Slab', serif;
+        }
+        .inp{
+            border-radius: 20px;
+            border: none;
+            height: 15px;
         }
     </style>
 </head>
 <body>
     
     <div class="container">
-        <h1>Listando materias</h1>
+        <h1 class="h">Listando materias</h1>
 
         <ul id="materias"></ul>
 
         <form id="form-cadastro" class="form-cadastro">
             
             <label for="id">id</label>
-            <input type="text" name="id" id="id">
+            <input class="inp" type="text" name="id" id="id">
             
             <label for="nome">nome</label>
-            <input type="text" name="nome" id="nome">
+            <input class="inp" type="text" name="nome" id="nome">
 
             <label for="cargaHoraria">cargaHoraria</label>
-            <input type="text" name="cargaHoraria" id="cargaHoraria">
+            <input class="inp" type="text" name="cargaHoraria" id="cargaHoraria">
 
             <label for="curso">curso</label>
-            <input type="text" name="curso" id="curso">
+            <input class="inp" type="text" name="curso" id="curso">
 
             <button class="botao"type="submit">Enviar</button>
         </form>
