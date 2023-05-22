@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+
+    <style>
+        .form-cadastro{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container{
+            margin-top: 200px;
+            background-color: darkcyan;
+            height: 400px;
+            width: 400px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .botao{
+            margin-top: 5px;
+            
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Listando materias</h1>
+
+        <ul id="materias"></ul>
+
+        <form id="form-cadastro" class="form-cadastro">
+            
+            <label for="id">id</label>
+            <input type="text" name="id" id="id">
+            
+            <label for="nome">nome</label>
+            <input type="text" name="nome" id="nome">
+
+            <label for="cargaHoraria">cargaHoraria</label>
+            <input type="text" name="cargaHoraria" id="cargaHoraria">
+
+            <label for="curso">curso</label>
+            <input type="text" name="curso" id="curso">
+
+            <button class="botao"type="submit">Enviar</button>
+        </form>
+    </div>
+
+
+
+    <script>
+        const url="http://localhost:3000/materias"
+
+        fetch(url)
+        .then(resposta=> resposta.json())
+        .then(data=>{
+            const lista = document.querySelector('#materias');
+            for (let i=0 ; i < data.length; i++){
+                let li = document.createElement('li');
+                li.textContent = `${data[i].id} ${data[i].nome} ${data[i].cargaHoraria} ${data[i].curso}`;
+                lista.appendChild(li)
+            }
+        });
+        let formJS = document.querySelector("#form-cadastro")
+        //console.log(formJS)
+        formJS.addEventListener('submit', (event)=>{
+            event.preventDefault()
+            console.log("cliquei no botão")
+            //passo 1: pegar informações dos inputs
+            let id = document.querySelector("#id").value;
+            let nome = document.querySelector("#nome").value;
+            let cargaHoraria = document.querySelector("#cargaHoraria").value;
+            let curso = document.querySelector("#curso").value;
+            console.log(id,nome,cargaHoraria,curso)
+            //passo 2: enviar informações
+            //O que agente usa para enviar?
+            let materia = {
+                id,
+                nome,
+                cargaHoraria,
+                curso
+            }
+            fetch(url,{
+                method: 'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify(materia)
+            })
+            .then(response=>response.json())
+        });
+    </script>
+</body>
+
+</html>
