@@ -8,9 +8,11 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
         .form-cadastro{
             display: flex;
             flex-direction: column;
+            align-items: ;
             width: 300px;
         }
         body{
@@ -32,10 +34,13 @@
         }
         .botao{
             margin-top: 15px;
-            background-color: rgb(143, 143, 143);
+            background-color: rgb(197, 197, 197);
             border-radius: 15px;
             height: 25px;
+            width: 70px;
             border: none;
+            font-family: 'Lato', sans-serif;
+            font-size: 15px;
         }
         .h{
             font-family: 'Roboto Slab', serif;
@@ -43,7 +48,14 @@
         .inp{
             border-radius: 20px;
             border: none;
-            height: 15px;
+            height: 20px;
+        }
+        .letras{
+            margin-left: 15px;
+            font-family: 'Roboto Slab', serif;
+        }
+        #materias{
+            font-family: 'Roboto Slab', serif;
         }
     </style>
 </head>
@@ -56,16 +68,16 @@
 
         <form id="form-cadastro" class="form-cadastro">
             
-            <label for="id">id</label>
+            <label class="letras" for="id">id</label>
             <input class="inp" type="text" name="id" id="id">
             
-            <label for="nome">nome</label>
+            <label class="letras" for="nome">nome</label>
             <input class="inp" type="text" name="nome" id="nome">
 
-            <label for="cargaHoraria">cargaHoraria</label>
+            <label class="letras" for="cargaHoraria">cargaHoraria</label>
             <input class="inp" type="text" name="cargaHoraria" id="cargaHoraria">
 
-            <label for="curso">curso</label>
+            <label class="letras" for="curso">curso</label>
             <input class="inp" type="text" name="curso" id="curso">
 
             <button class="botao"type="submit">Enviar</button>
